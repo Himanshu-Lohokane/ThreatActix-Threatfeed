@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Threat Intelligence Dashboard</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <title>Falcon Threat Intelligence Dashboard</title>
+    <meta name="description" content="Advanced threat intelligence dashboard for monitoring cyber threats, incidents, and vulnerability analysis">
+    <link rel="stylesheet" href="/style.css">
+    <!-- Switch to production React for deployment -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Force HTTPS redirect for security -->
+    <script>
+        if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost') {
+            window.location.protocol = 'https:';
+        }
+    </script>
 </head>
 <body>
     <div id="root"></div>

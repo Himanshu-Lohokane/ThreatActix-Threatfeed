@@ -2,7 +2,9 @@
     "name": "falcon-threat-intelligence-frontend",
     "scripts": {
         "start": "npx serve public -l 5000 -s --cors",
-        "dev": "npx serve public -l 5000 -s --cors"
+        "dev": "npx serve public -l 5000 -s --cors",
+        "build": "echo \"No build needed - static files ready\" && exit 0",
+        "vercel-build": "echo \"Using pre-built static files\""
     },
     "dependencies": {
         "serve": "^14.2.1"
