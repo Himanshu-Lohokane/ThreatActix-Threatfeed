@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/.*",
+      "dest": "/falcon-threat-intelligence/frontend/public/index.html"
+    }
+  ],
+  "buildCommand": "cd falcon-threat-intelligence/frontend && npm install",
+  "outputDirectory": "falcon-threat-intelligence/frontend/public",
+  "public": true
+}
