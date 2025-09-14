@@ -1,5 +1,5 @@
 :root {
-  /* Primitive Color Tokens */
+  /* Primitive Color Tokens - Enhanced for Epic Design */
   --color-white: rgba(255, 255, 255, 1);
   --color-black: rgba(0, 0, 0, 1);
   --color-cream-50: rgba(252, 252, 249, 1);
@@ -9,19 +9,28 @@
   --color-gray-400: rgba(119, 124, 124, 1);
   --color-slate-500: rgba(98, 108, 113, 1);
   --color-brown-600: rgba(94, 82, 64, 1);
-  --color-charcoal-700: rgba(31, 33, 33, 1);
-  --color-charcoal-800: rgba(38, 40, 40, 1);
-  --color-slate-900: rgba(19, 52, 59, 1);
-  --color-teal-300: rgba(50, 184, 198, 1);
-  --color-teal-400: rgba(45, 166, 178, 1);
-  --color-teal-500: rgba(33, 128, 141, 1);
-  --color-teal-600: rgba(29, 116, 128, 1);
-  --color-teal-700: rgba(26, 104, 115, 1);
-  --color-teal-800: rgba(41, 150, 161, 1);
-  --color-red-400: rgba(255, 84, 89, 1);
-  --color-red-500: rgba(192, 21, 47, 1);
-  --color-orange-400: rgba(230, 129, 97, 1);
-  --color-orange-500: rgba(168, 75, 47, 1);
+  --color-charcoal-700: rgba(15, 23, 42, 1);
+  --color-charcoal-800: rgba(30, 41, 59, 1);
+  --color-slate-900: rgba(2, 6, 23, 1);
+  
+  /* Epic Cyber Colors */
+  --color-cyber-blue: rgba(0, 255, 255, 1);
+  --color-cyber-purple: rgba(147, 51, 234, 1);
+  --color-cyber-pink: rgba(236, 72, 153, 1);
+  --color-cyber-green: rgba(34, 197, 94, 1);
+  --color-neon-orange: rgba(255, 165, 0, 1);
+  --color-electric-blue: rgba(59, 130, 246, 1);
+  
+  --color-teal-300: rgba(94, 234, 212, 1);
+  --color-teal-400: rgba(45, 212, 191, 1);
+  --color-teal-500: rgba(20, 184, 166, 1);
+  --color-teal-600: rgba(13, 148, 136, 1);
+  --color-teal-700: rgba(15, 118, 110, 1);
+  --color-teal-800: rgba(17, 94, 89, 1);
+  --color-red-400: rgba(248, 113, 113, 1);
+  --color-red-500: rgba(239, 68, 68, 1);
+  --color-orange-400: rgba(251, 146, 60, 1);
+  --color-orange-500: rgba(249, 115, 22, 1);
 
   /* RGB versions for opacity control */
   --color-brown-600-rgb: 94, 82, 64;
@@ -33,36 +42,42 @@
   --color-orange-500-rgb: 168, 75, 47;
   --color-orange-400-rgb: 230, 129, 97;
 
-  /* Background color tokens (Light Mode) */
-  --color-bg-1: rgba(59, 130, 246, 0.08); /* Light blue */
-  --color-bg-2: rgba(245, 158, 11, 0.08); /* Light yellow */
-  --color-bg-3: rgba(34, 197, 94, 0.08); /* Light green */
-  --color-bg-4: rgba(239, 68, 68, 0.08); /* Light red */
-  --color-bg-5: rgba(147, 51, 234, 0.08); /* Light purple */
-  --color-bg-6: rgba(249, 115, 22, 0.08); /* Light orange */
-  --color-bg-7: rgba(236, 72, 153, 0.08); /* Light pink */
-  --color-bg-8: rgba(6, 182, 212, 0.08); /* Light cyan */
+  /* Background color tokens (Light Mode) - Fixed for compatibility */
+  --color-bg-1: rgba(59, 130, 246, 0.12); /* Light blue */
+  --color-bg-2: rgba(245, 158, 11, 0.12); /* Light yellow */
+  --color-bg-3: rgba(34, 197, 94, 0.12); /* Light green */
+  --color-bg-4: rgba(239, 68, 68, 0.12); /* Light red */
+  --color-bg-5: rgba(147, 51, 234, 0.12); /* Light purple */
+  --color-bg-6: rgba(249, 115, 22, 0.12); /* Light orange */
+  --color-bg-7: rgba(236, 72, 153, 0.12); /* Light pink */
+  --color-bg-8: rgba(6, 182, 212, 0.12); /* Light cyan */
 
-  /* Semantic Color Tokens (Light Mode) */
-  --color-background: var(--color-cream-50);
-  --color-surface: var(--color-cream-100);
-  --color-text: var(--color-slate-900);
-  --color-text-secondary: var(--color-slate-500);
+  /* Epic gradient tokens for special uses */
+  --gradient-bg-1: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(147, 51, 234, 0.1)); 
+  --gradient-bg-2: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(249, 115, 22, 0.1));
+  --gradient-bg-3: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(20, 184, 166, 0.1));
+  --gradient-bg-4: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(236, 72, 153, 0.1));
+
+  /* Semantic Color Tokens (Light Mode) - Epic Cyber Theme */
+  --color-background: var(--color-charcoal-700);
+  --color-surface: rgba(30, 41, 59, 0.95);
+  --color-text: rgba(248, 250, 252, 0.95);
+  --color-text-secondary: rgba(148, 163, 184, 0.8);
   --color-primary: var(--color-teal-500);
-  --color-primary-hover: var(--color-teal-600);
+  --color-primary-hover: var(--color-cyber-blue);
   --color-primary-active: var(--color-teal-700);
-  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
-  --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
-  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
-  --color-btn-primary-text: var(--color-cream-50);
-  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-secondary: rgba(59, 130, 246, 0.1);
+  --color-secondary-hover: rgba(59, 130, 246, 0.2);
+  --color-secondary-active: rgba(59, 130, 246, 0.3);
+  --color-border: rgba(59, 130, 246, 0.2);
+  --color-btn-primary-text: var(--color-slate-900);
+  --color-card-border: rgba(20, 184, 166, 0.3);
+  --color-card-border-inner: rgba(20, 184, 166, 0.15);
   --color-error: var(--color-red-500);
-  --color-success: var(--color-teal-500);
-  --color-warning: var(--color-orange-500);
-  --color-info: var(--color-slate-500);
-  --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+  --color-success: var(--color-cyber-green);
+  --color-warning: var(--color-neon-orange);
+  --color-info: var(--color-electric-blue);
+  --color-focus-ring: rgba(20, 184, 166, 0.6);
   --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
 
   /* Common style patterns */
@@ -297,15 +312,43 @@
   --color-info-rgb: var(--color-slate-500-rgb);
 }
 
-/* Base styles */
+/* Base styles - Epic Design */
 html {
   font-size: var(--font-size-base);
   font-family: var(--font-family-base);
   line-height: var(--line-height-normal);
   color: var(--color-text);
-  background-color: var(--color-background);
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+}
+
+/* Epic animated background particles */
+html::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(20, 184, 166, 0.3), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(59, 130, 246, 0.2), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(147, 51, 234, 0.3), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(34, 197, 94, 0.2), transparent);
+  background-size: 200px 200px, 300px 300px, 250px 250px, 180px 180px;
+  animation: particles 20s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes particles {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-10px, -10px); }
+  50% { transform: translate(20px, -20px); }
+  75% { transform: translate(-20px, 10px); }
+  100% { transform: translate(0, 0); }
 }
 
 body {
@@ -390,7 +433,7 @@ pre code {
   padding: 0;
 }
 
-/* Buttons */
+/* Epic Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -401,10 +444,32 @@ pre code {
   font-weight: 500;
   line-height: 1.5;
   cursor: pointer;
-  transition: all var(--duration-normal) var(--ease-standard);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: none;
   text-decoration: none;
   position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  transition: width 0.6s ease, height 0.6s ease;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .btn:focus-visible {
@@ -413,16 +478,28 @@ pre code {
 }
 
 .btn--primary {
-  background: var(--color-primary);
-  color: var(--color-btn-primary-text);
+  background: linear-gradient(135deg, #14b8a6 0%, #0891b2 50%, #06b6d4 100%);
+  color: var(--color-slate-900);
+  box-shadow: 
+    0 4px 15px rgba(20, 184, 166, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(20, 184, 166, 0.3);
 }
 
 .btn--primary:hover {
-  background: var(--color-primary-hover);
+  background: linear-gradient(135deg, #0891b2 0%, #06b6d4 50%, #14b8a6 100%);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 25px rgba(20, 184, 166, 0.5),
+    0 0 20px rgba(20, 184, 166, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .btn--primary:active {
-  background: var(--color-primary-active);
+  transform: translateY(0);
+  box-shadow: 
+    0 2px 10px rgba(20, 184, 166, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .btn--secondary {
@@ -748,7 +825,7 @@ select.form-control {
 
 .sidebar {
   width: 250px;
-  background-color: var(--color-surface);
+  background: linear-gradient(180deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.95) 100%);
   border-right: 1px solid var(--color-border);
   padding: var(--space-16);
   display: flex;
@@ -756,6 +833,10 @@ select.form-control {
   position: fixed;
   height: 100vh;
   overflow-y: auto;
+  backdrop-filter: blur(20px);
+  box-shadow: 
+    4px 0 20px rgba(0, 0, 0, 0.3),
+    inset 1px 0 0 rgba(255, 255, 255, 0.1);
 }
 
 .logo {
@@ -870,13 +951,45 @@ select.form-control {
 }
 
 .metric-card {
-  background-color: var(--color-surface);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(51, 65, 85, 0.7) 100%);
   border: 1px solid var(--color-card-border);
   border-radius: var(--radius-lg);
   padding: var(--space-20);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(20, 184, 166, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(20, 184, 166, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(20, 184, 166, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-color: rgba(20, 184, 166, 0.6);
+}
+
+.metric-card:hover::before {
+  left: 100%;
 }
 
 .metric-info h3 {
@@ -893,11 +1006,30 @@ select.form-control {
   font-weight: var(--font-weight-bold);
   color: var(--color-text);
   margin: 0;
+  background: linear-gradient(135deg, #14b8a6, #0891b2, #06b6d4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 .metric-icon {
   font-size: 32px;
-  opacity: 0.8;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 10px currentColor);
+}
+
+.metric-card:hover .metric-icon {
+  opacity: 1;
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 20px currentColor);
 }
 
 .metric-card.critical .metric-icon {
@@ -1238,4 +1370,188 @@ td {
 
 .hidden {
   display: none !important;
+}
+
+/* Epic Login Page Styles */
+.login-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  overflow: hidden;
+}
+
+.login-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.login-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(3px 3px at 100px 100px, rgba(20, 184, 166, 0.4), transparent),
+    radial-gradient(2px 2px at 200px 200px, rgba(59, 130, 246, 0.3), transparent),
+    radial-gradient(1px 1px at 300px 150px, rgba(147, 51, 234, 0.4), transparent),
+    radial-gradient(2px 2px at 150px 300px, rgba(34, 197, 94, 0.3), transparent),
+    radial-gradient(1px 1px at 400px 250px, rgba(236, 72, 153, 0.3), transparent);
+  background-size: 400px 400px, 500px 500px, 300px 300px, 450px 450px, 350px 350px;
+  animation: loginParticles 30s linear infinite;
+}
+
+.login-grid {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(20, 184, 166, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 184, 166, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: loginGrid 20s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes loginParticles {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-20px, -20px) rotate(90deg); }
+  50% { transform: translate(40px, -40px) rotate(180deg); }
+  75% { transform: translate(-40px, 20px) rotate(270deg); }
+  100% { transform: translate(0, 0) rotate(360deg); }
+}
+
+@keyframes loginGrid {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+.login-card {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(51, 65, 85, 0.9) 100%);
+  padding: 3rem;
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.5),
+    0 0 50px rgba(20, 184, 166, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(20, 184, 166, 0.3);
+  max-width: 400px;
+  width: 90%;
+  animation: loginCardFloat 6s ease-in-out infinite;
+}
+
+@keyframes loginCardFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login-icon {
+  font-size: 3rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  animation: pulse 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px currentColor);
+}
+
+.login-title {
+  font-size: 2rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #14b8a6, #0891b2, #06b6d4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.login-subtitle {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.login-input {
+  background: rgba(15, 23, 42, 0.7) !important;
+  border: 1px solid rgba(59, 130, 246, 0.3) !important;
+  color: var(--color-text) !important;
+  transition: all 0.3s ease;
+}
+
+.login-input:focus {
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 20px rgba(20, 184, 166, 0.3) !important;
+  background: rgba(15, 23, 42, 0.9) !important;
+}
+
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -0.5rem;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.checkbox-container input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+.forgot-password {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.forgot-password:hover {
+  color: var(--color-cyber-blue);
+  text-shadow: 0 0 10px currentColor;
+}
+
+.login-button {
+  margin-top: 1rem;
+  padding: 1rem 2rem !important;
+  font-size: 1.1rem !important;
+  min-height: 60px;
+}
+
+.login-button.loading {
+  pointer-events: none;
+}
+
+.login-spinner {
+  animation: spin 1s linear infinite;
+  margin-right: 0.5rem;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }

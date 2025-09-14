@@ -6,6 +6,12 @@ A full-stack threat intelligence dashboard that integrates with OpenCTI (Open Cy
 ## Current State
 Successfully imported and configured for Replit environment on September 14, 2025. The application is running in demo mode with sample data and is fully functional.
 
+**Import Status**: ✅ Complete
+- Frontend server running on port 5000 (Replit proxy compatible)
+- Backend server running on localhost:3001 (demo mode with empty OpenCTI credentials)
+- All dependencies installed successfully
+- Deployment configuration set for autoscale mode
+
 ## Project Architecture
 
 ### Frontend

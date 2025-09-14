@@ -111,7 +111,7 @@ const Sidebar = ({ activeView, setActiveView }) => {
 };
 
 // Header Component
-const Header = ({ title }) => {
+const Header = ({ title, onLogout }) => {
   return (
     <div className="header">
       <h1 className="header-title">{title}</h1>
@@ -127,8 +127,8 @@ const Header = ({ title }) => {
         <button className="btn btn--outline">
           <i className="fas fa-bell"></i>
         </button>
-        <button className="btn btn--outline">
-          <i className="fas fa-user"></i>
+        <button className="btn btn--outline" onClick={onLogout}>
+          <i className="fas fa-sign-out-alt"></i>
         </button>
       </div>
     </div>
@@ -148,7 +148,7 @@ const MetricCard = ({ title, value, icon, type }) => {
   );
 };
 
-// Chart Components
+// Epic Chart Components with Gradients
 const ThreatTrendChart = () => {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
@@ -159,6 +159,18 @@ const ThreatTrendChart = () => {
     }
 
     const ctx = chartRef.current.getContext('2d');
+    
+    // Create epic gradients
+    const threatGradient = ctx.createLinearGradient(0, 0, 0, 300);
+    threatGradient.addColorStop(0, 'rgba(20, 184, 166, 0.8)');
+    threatGradient.addColorStop(0.5, 'rgba(59, 130, 246, 0.4)');
+    threatGradient.addColorStop(1, 'rgba(20, 184, 166, 0.1)');
+    
+    const incidentGradient = ctx.createLinearGradient(0, 0, 0, 300);
+    incidentGradient.addColorStop(0, 'rgba(236, 72, 153, 0.8)');
+    incidentGradient.addColorStop(0.5, 'rgba(147, 51, 234, 0.4)');
+    incidentGradient.addColorStop(1, 'rgba(236, 72, 153, 0.1)');
+    
     chartInstance.current = new Chart(ctx, {
       type: 'line',
       data: {
@@ -167,39 +179,91 @@ const ThreatTrendChart = () => {
           {
             label: 'Threats',
             data: dashboardData.threatTrends.map(item => item.threats),
-            borderColor: '#1FB8CD',
-            backgroundColor: 'rgba(31, 184, 205, 0.1)',
+            borderColor: '#14b8a6',
+            backgroundColor: threatGradient,
             fill: true,
-            tension: 0.4
+            tension: 0.4,
+            pointBackgroundColor: '#14b8a6',
+            pointBorderColor: '#0f172a',
+            pointRadius: 5,
+            pointHoverRadius: 8,
+            pointBorderWidth: 2,
+            pointHoverBorderWidth: 3
           },
           {
             label: 'Incidents',
             data: dashboardData.threatTrends.map(item => item.incidents),
-            borderColor: '#FFC185',
-            backgroundColor: 'rgba(255, 193, 133, 0.1)',
+            borderColor: '#ec4899',
+            backgroundColor: incidentGradient,
             fill: true,
-            tension: 0.4
+            tension: 0.4,
+            pointBackgroundColor: '#ec4899',
+            pointBorderColor: '#0f172a',
+            pointRadius: 5,
+            pointHoverRadius: 8,
+            pointBorderWidth: 2,
+            pointHoverBorderWidth: 3
           }
         ]
       },
       options: {
         responsive: true,
         maintainAspectRatio: false,
+        interaction: {
+          intersect: false,
+          mode: 'index'
+        },
         plugins: {
           legend: {
             labels: {
-              color: '#f5f5f5'
+              color: '#f8fafc',
+              usePointStyle: true,
+              padding: 20,
+              font: {
+                size: 12,
+                weight: '500'
+              }
+            }
+          },
+          tooltip: {
+            enabled: true,
+            backgroundColor: 'rgba(15, 23, 42, 0.95)',
+            titleColor: '#14b8a6',
+            bodyColor: '#f8fafc',
+            borderColor: '#14b8a6',
+            borderWidth: 1,
+            cornerRadius: 8,
+            displayColors: true,
+            callbacks: {
+              title: (tooltipItems) => {
+                return `Date: ${tooltipItems[0].label}`;
+              },
+              label: (context) => {
+                return `${context.dataset.label}: ${context.parsed.y} ${context.dataset.label === 'Threats' ? '🛡️' : '⚠️'}`;
+              }
             }
           }
         },
         scales: {
           x: {
-            ticks: { color: '#a7a9a9' },
-            grid: { color: 'rgba(167, 169, 169, 0.1)' }
+            ticks: { 
+              color: '#94a3b8',
+              font: { weight: '500' }
+            },
+            grid: { 
+              color: 'rgba(59, 130, 246, 0.2)',
+              drawBorder: false
+            }
           },
           y: {
-            ticks: { color: '#a7a9a9' },
-            grid: { color: 'rgba(167, 169, 169, 0.1)' }
+            ticks: { 
+              color: '#94a3b8',
+              font: { weight: '500' }
+            },
+            grid: { 
+              color: 'rgba(59, 130, 246, 0.2)',
+              drawBorder: false
+            }
           }
         }
       }
@@ -230,27 +294,67 @@ const ThreatCategoriesChart = () => {
     }
 
     const ctx = chartRef.current.getContext('2d');
+    
+    // Epic cyber colors with glow effect
+    const epicColors = [
+      '#14b8a6', // Cyber teal
+      '#ec4899', // Cyber pink  
+      '#3b82f6', // Electric blue
+      '#8b5cf6', // Cyber purple
+      '#22c55e'  // Cyber green
+    ];
+    
     chartInstance.current = new Chart(ctx, {
       type: 'doughnut',
       data: {
         labels: dashboardData.threatCategories.map(item => item.category),
         datasets: [{
           data: dashboardData.threatCategories.map(item => item.count),
-          backgroundColor: ['#1FB8CD', '#FFC185', '#B4413C', '#ECEBD5', '#5D878F'],
-          borderWidth: 0
+          backgroundColor: epicColors,
+          borderColor: epicColors.map(color => color + '80'),
+          borderWidth: 2,
+          hoverBackgroundColor: epicColors.map(color => color + 'CC'),
+          hoverBorderColor: epicColors,
+          hoverBorderWidth: 3
         }]
       },
       options: {
         responsive: true,
         maintainAspectRatio: false,
+        cutout: '60%',
         plugins: {
           legend: {
             position: 'bottom',
             labels: {
-              color: '#f5f5f5',
-              padding: 20
+              color: '#f8fafc',
+              padding: 20,
+              usePointStyle: true,
+              pointStyle: 'circle',
+              font: {
+                size: 12,
+                weight: '500'
+              }
+            }
+          },
+          tooltip: {
+            enabled: true,
+            backgroundColor: 'rgba(15, 23, 42, 0.95)',
+            titleColor: '#14b8a6',
+            bodyColor: '#f8fafc',
+            borderColor: '#14b8a6',
+            borderWidth: 1,
+            cornerRadius: 8,
+            callbacks: {
+              label: (context) => {
+                const percentage = Math.round((context.parsed / context.dataset.data.reduce((a, b) => a + b, 0)) * 100);
+                return `${context.label}: ${context.parsed} (${percentage}%) 🎯`;
+              }
             }
           }
+        },
+        animation: {
+          animateRotate: true,
+          duration: 2000
         }
       }
     });
@@ -664,9 +768,158 @@ const SettingsPage = () => {
   );
 };
 
+// Epic Login Page Component
+const LoginPage = ({ onLogin }) => {
+  const [credentials, setCredentials] = useState({ username: '', password: '', rememberMe: false });
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    
+    // Simple demo authentication - only store login status, never credentials
+    setTimeout(() => {
+      localStorage.setItem('isAuthenticated', 'true');
+      localStorage.setItem('loginTimestamp', Date.now().toString());
+      setIsLoading(false);
+      onLogin(true);
+    }, 1500);
+  };
+
+  const handleInputChange = (field) => (e) => {
+    setCredentials(prev => ({
+      ...prev,
+      [field]: field === 'rememberMe' ? e.target.checked : e.target.value
+    }));
+  };
+
+  return (
+    <div className="login-container">
+      <div className="login-background">
+        <div className="login-particles"></div>
+        <div className="login-grid"></div>
+      </div>
+      <div className="login-card">
+        <div className="login-header">
+          <i className="fas fa-shield-alt login-icon"></i>
+          <h1 className="login-title">Falcon Intelligence</h1>
+          <p className="login-subtitle">Secure Threat Intelligence Portal</p>
+        </div>
+        <form className="login-form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label className="form-label">Username</label>
+            <input
+              type="text"
+              className="form-control login-input"
+              value={credentials.username}
+              onChange={handleInputChange('username')}
+              placeholder="Enter your username"
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label className="form-label">Password</label>
+            <input
+              type="password"
+              className="form-control login-input"
+              value={credentials.password}
+              onChange={handleInputChange('password')}
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+          <div className="login-options">
+            <label className="checkbox-container">
+              <input
+                type="checkbox"
+                checked={credentials.rememberMe}
+                onChange={handleInputChange('rememberMe')}
+              />
+              <span className="checkmark"></span>
+              Remember me
+            </label>
+            <a href="#" className="forgot-password">Forgot password?</a>
+          </div>
+          <button 
+            type="submit" 
+            className={`btn btn--primary login-button ${isLoading ? 'loading' : ''}`}
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <>
+                <i className="fas fa-spinner login-spinner"></i>
+                Authenticating...
+              </>
+            ) : (
+              <>
+                <i className="fas fa-sign-in-alt"></i>
+                Login
+              </>
+            )}
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
 // Main App Component
 const App = () => {
   const [activeView, setActiveView] = useState('dashboard');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Check for existing login on mount with expiry (24 hour demo session)
+  React.useEffect(() => {
+    const checkSessionValidity = () => {
+      const isAuth = localStorage.getItem('isAuthenticated');
+      const loginTime = localStorage.getItem('loginTimestamp');
+      
+      if (isAuth && loginTime) {
+        const twentyFourHours = 24 * 60 * 60 * 1000;
+        const isExpired = Date.now() - parseInt(loginTime) > twentyFourHours;
+        
+        if (!isExpired) {
+          setIsLoggedIn(true);
+        } else {
+          // Auto-logout expired session
+          handleLogout();
+        }
+      }
+    };
+
+    // Check on mount
+    checkSessionValidity();
+
+    // Also check when tab becomes visible (catches expiry when user returns)
+    const handleVisibilityChange = () => {
+      if (!document.hidden) {
+        checkSessionValidity();
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    
+    // Cleanup listener
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, []);
+
+  const handleLogin = (authStatus) => {
+    setIsLoggedIn(authStatus);
+  };
+
+  const handleLogout = () => {
+    // Clear all authentication data
+    localStorage.removeItem('isAuthenticated');
+    localStorage.removeItem('loginTimestamp');
+    setIsLoggedIn(false);
+    setActiveView('dashboard');
+  };
+
+  if (!isLoggedIn) {
+    return React.createElement(LoginPage, { onLogin: handleLogin });
+  }
 
   const getPageTitle = (view) => {
     const titles = {
@@ -698,7 +951,7 @@ const App = () => {
     <div className="dashboard">
       <Sidebar activeView={activeView} setActiveView={setActiveView} />
       <div className="main-content">
-        <Header title={getPageTitle(activeView)} />
+        <Header title={getPageTitle(activeView)} onLogout={handleLogout} />
         {renderContent()}
       </div>
     </div>
