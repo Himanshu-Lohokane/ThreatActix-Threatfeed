@@ -1,0 +1,53 @@
+# Task: UI Enhancement for Falcon Threat Intelligence Dashboard
+
+## Project Overview
+I've uploaded a full-stack threat intelligence dashboard that uses React for the frontend and Express.js for the backend. The frontend currently uses static data (mock API responses) and the backend will eventually connect to OpenCTI.
+
+## Requirements
+
+### 1. Frontend UI Enhancement
+Please improve the visual design of the frontend with these guidelines:
+- **Epic, Interactive Design**: Create a highly interactive, visually impressive design similar to falconfeeds.io, with dynamic elements, hover effects, and polished micro-interactions
+- **Modern UI**: Update the design to be more sleek and professional (color scheme, typography, spacing)
+- **Responsiveness**: Ensure the dashboard works well on mobile/tablet
+- **Animations**: Add engaging transitions/animations for better user experience, including data visualization animations
+- **Chart Styling**: Enhance Chart.js visualizations with dramatic colors, gradients, and interactive tooltips
+- **Interactive Elements**: Add interactive filters, expandable cards, and visual feedback on user actions
+- **NO FUNCTIONALITY CHANGES**: All data flows and component structures must remain intact
+
+### 2. New Login Page
+Create a visually striking login page with:
+- Eye-catching design with subtle animations or particle effects (like falconfeeds.io)
+- Username/password fields with validation and animated feedback
+- "Remember me" checkbox with custom styling
+- "Forgot password" link (non-functional)
+- Login button with satisfying hover/click effects that redirects to the dashboard
+- No actual authentication needed - just store credentials in localStorage and redirect
+
+### 3. Important Constraints
+- DO NOT modify any backend code or functionality
+- DO NOT change how data is loaded or processed
+- DO NOT alter the chart data structure or API call patterns
+- Preserve all routes and views in the frontend
+
+### 4. File Structure
+- `falcon-threat-intelligence/frontend/` - Contains the React frontend
+- `falcon-threat-intelligence/backend/` - Contains the Express backend (DO NOT MODIFY)
+
+### 5. Existing Pages to Enhance
+- Dashboard (metrics, threat trends, recent incidents)
+- Threats & IOCs
+- Incidents
+- Vulnerabilities
+- Reports
+- Network Analysis
+- Settings
+
+### 6. Technical Notes
+- The frontend uses React with Chart.js for visualizations
+- Currently loads static mock data from JavaScript objects
+- Uses basic CSS for styling (feel free to add a CSS framework if needed)
+- For the login page, no actual backend authentication is needed
+- Take inspiration from falconfeeds.io for the interactive, visually striking design elements
+
+Please provide a link to the completed Replit when done. The UI should look significantly more polished, interactive, and visually impressive while preserving all existing functionality.
